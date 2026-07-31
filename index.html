@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operations Field Manual — Behavioral Styles Book Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1C1A17; --ink-soft:#5b564c; --paper:#E7E3D8; --paper-raised:#F4F1E9; --line:#c9c1ac;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;line-height:1.55;
+  background-image:radial-gradient(circle at 1px 1px, rgba(0,0,0,0.05) 1px, transparent 0); background-size:22px 22px;}
+.wrap{max-width:920px;margin:0 auto;padding:60px 20px 80px;}
+.eyebrow{font-family:'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;color:var(--ink-soft);}
+h1{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(2.1rem,5vw,3.2rem);margin:.25em 0 .3em;max-width:680px;}
+p.lede{max-width:560px;color:var(--ink-soft);font-size:1.05rem;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:38px;}
+.file{
+  display:block;text-decoration:none;color:var(--ink);background:var(--paper-raised);
+  border:1px solid var(--line);border-radius:10px;padding:22px 22px 20px;position:relative;overflow:hidden;
+  transition:transform .15s;
+}
+.file:hover{transform:translateY(-2px);}
+.file .bar{position:absolute;left:0;top:0;bottom:0;width:6px;}
+.file .num{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--ink-soft);letter-spacing:.1em;}
+.file h2{font-family:'Oswald',sans-serif;font-size:1.2rem;margin:.35em 0 .2em;font-weight:600;}
+.file .ch{font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--ink-soft);}
+.roster{display:flex;gap:10px;flex-wrap:wrap;margin-top:40px;}
+.roster span{font-family:'IBM Plex Mono',monospace;font-size:.72rem;border:1px solid var(--line);border-radius:20px;padding:5px 12px;background:var(--paper-raised);color:var(--ink-soft);}
+.spectrum{height:6px;border-radius:3px;background:linear-gradient(90deg,#B23A2E,#B8862B,#3E6E52,#33587F,#6B4E71,#8A6D2F);margin:44px 0 8px;}
+footer{margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--ink-soft);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Operations Field Manual</div>
+  <h1>Six weeks. Four colors. One team.</h1>
+  <p class="lede">A weekly companion to go with the book &mdash; a short briefing, a 10-minute interactive, and a form to compare notes before the next chapters. New file drops each week.</p>
+
+  <div class="grid">
+    <a class="file" href="week1.html"><div class="bar" style="background:#B23A2E"></div><div class="num">FILE 01</div><h2>Foundations &amp; Red</h2><div class="ch">Ch. 1&ndash;6</div></a>
+    <a class="file" href="week2.html"><div class="bar" style="background:#B8862B"></div><div class="num">FILE 02</div><h2>Yellow</h2><div class="ch">Ch. 7&ndash;10</div></a>
+    <a class="file" href="week3.html"><div class="bar" style="background:#3E6E52"></div><div class="num">FILE 03</div><h2>Green</h2><div class="ch">Ch. 11&ndash;13</div></a>
+    <a class="file" href="week4.html"><div class="bar" style="background:#33587F"></div><div class="num">FILE 04</div><h2>Blue</h2><div class="ch">Ch. 14&ndash;17</div></a>
+    <a class="file" href="week5.html"><div class="bar" style="background:#6B4E71"></div><div class="num">FILE 05</div><h2>Body Language, Perception &amp; Stress</h2><div class="ch">Ch. 18&ndash;21</div></a>
+    <a class="file" href="week6.html"><div class="bar" style="background:#8A6D2F"></div><div class="num">FILE 06</div><h2>Feedback, Dynamics &amp; Application</h2><div class="ch">Ch. 22&ndash;29</div></a>
+  </div>
+
+  <div class="spectrum"></div>
+
+  <div class="roster">
+    <span>Dr. Galanis</span><span>Michael</span><span>Casey</span><span>Alex</span><span>Derek</span><span>Clint</span><span>Jake</span>
+  </div>
+  <footer>Post each file to the repo the week it's assigned &mdash; earlier files stay live so the team can revisit them.</footer>
+</div>
+</body>
+</html>
