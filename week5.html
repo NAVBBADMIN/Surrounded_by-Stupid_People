@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 5 · Body Language, Perception &amp; Stress — Ops Field Manual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1C1A17;
+  --ink-soft:#5b564c;
+  --paper:#E7E3D8;
+  --paper-raised:#F4F1E9;
+  --line:#c9c1ac;
+  --accent:#6B4E71;
+  --accent-soft:#D9CBDB;
+  --accent-dark:#4E3752;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:'IBM Plex Sans',sans-serif; line-height:1.55;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(0,0,0,0.05) 1px, transparent 0);
+  background-size:22px 22px;
+}
+a{color:var(--accent-dark);}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px 80px;}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace; letter-spacing:.14em; text-transform:uppercase;
+  font-size:.72rem; color:var(--ink-soft);
+}
+/* top bar */
+.topbar{border-bottom:3px solid var(--ink); background:var(--paper-raised);}
+.topbar-inner{max-width:920px;margin:0 auto;padding:16px 20px 0;}
+.brand{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+.brand-name{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);}
+.brand-progress{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--ink-soft);}
+.tabs{display:flex;gap:4px;overflow-x:auto;padding-bottom:0;}
+.tab{
+  font-family:'IBM Plex Mono',monospace; font-size:.72rem; letter-spacing:.06em;
+  padding:9px 14px; white-space:nowrap; text-decoration:none; color:var(--ink-soft);
+  background:var(--paper); border:2px solid var(--line); border-bottom:none;
+  border-radius:6px 6px 0 0; position:relative; top:2px;
+}
+.tab.active{color:var(--ink); background:var(--paper); border-color:var(--ink); font-weight:600; top:0;border-bottom:3px solid var(--paper);}
+.tab.locked{opacity:.45;pointer-events:none;}
+/* hero */
+.hero{padding:52px 0 34px; border-bottom:1px solid var(--line); position:relative;}
+.stamp{
+  position:relative; float:right; width:118px; height:118px; border-radius:50%;
+  border:3px double var(--accent-dark); display:flex; align-items:center; justify-content:center;
+  transform:rotate(-8deg); margin:4px 0 20px 20px;
+  font-family:'IBM Plex Mono',monospace; color:var(--accent-dark); text-align:center;
+  font-size:.62rem; letter-spacing:.08em; text-transform:uppercase; line-height:1.5;
+}
+.hero h1{
+  font-family:'Oswald',sans-serif; font-weight:700; font-size:clamp(2rem,5vw,3.1rem);
+  margin:.3em 0 .2em; letter-spacing:.01em; max-width:600px;
+}
+.hero .chapters{font-family:'IBM Plex Mono',monospace;font-size:.85rem;color:var(--accent-dark);font-weight:600;letter-spacing:.04em;}
+.hero p.thesis{max-width:560px;color:var(--ink-soft);font-size:1.05rem;margin-top:14px;}
+/* section headers */
+.section{padding:40px 0;border-bottom:1px solid var(--line);}
+.section:last-of-type{border-bottom:none;}
+.section-head{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;}
+.section-head .tag{
+  font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--accent-soft);color:var(--accent-dark);padding:3px 9px;border-radius:3px;font-weight:600;
+}
+.section-head h2{font-family:'Oswald',sans-serif;font-size:1.5rem;margin:0;font-weight:600;}
+/* card */
+.card{
+  background:var(--paper-raised); border:1px solid var(--line); border-radius:10px;
+  padding:26px 28px; margin-bottom:20px; box-shadow:0 1px 0 rgba(0,0,0,.04);
+}
+.card h3{font-family:'Oswald',sans-serif;font-weight:600;font-size:1.15rem;margin-top:0;}
+.card p.hint{color:var(--ink-soft);font-size:.92rem;}
+/* scale rows */
+.scale-row{padding:14px 0;border-top:1px dashed var(--line);}
+.scale-row:first-of-type{border-top:none;}
+.scale-row .stmt{font-size:.97rem;margin-bottom:8px;}
+.scale{display:flex;gap:6px;flex-wrap:wrap;}
+.scale label{
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;border:1.5px solid var(--line);
+  border-radius:6px;padding:7px 10px;cursor:pointer;background:var(--paper);color:var(--ink-soft);
+  transition:all .15s;
+}
+.scale input{position:absolute;opacity:0;pointer-events:none;}
+.scale input:checked + label{background:var(--accent);border-color:var(--accent-dark);color:#fff;}
+.scale label:hover{border-color:var(--accent-dark);}
+/* buttons */
+.btn{
+  font-family:'IBM Plex Mono',monospace;font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;
+  background:var(--ink);color:var(--paper);border:none;padding:13px 22px;border-radius:6px;cursor:pointer;
+  font-weight:600;
+}
+.btn:hover{background:var(--accent-dark);}
+.btn.secondary{background:transparent;color:var(--ink);border:2px solid var(--ink);padding:11px 20px;}
+.btn.secondary:hover{background:var(--ink);color:var(--paper);}
+.btn:focus-visible, .tab:focus-visible, select:focus-visible, textarea:focus-visible{outline:3px solid var(--accent-dark);outline-offset:2px;}
+/* gauge */
+.gauge{margin-top:18px;}
+.gauge-track{height:16px;background:var(--paper);border:1.5px solid var(--line);border-radius:8px;overflow:hidden;}
+.gauge-fill{height:100%;width:0%;background:var(--accent);transition:width .6s ease;}
+.gauge-label{font-family:'IBM Plex Mono',monospace;font-size:.78rem;margin-top:8px;color:var(--ink-soft);}
+.gauge-label b{color:var(--ink);}
+/* select rows for guessing / matching */
+.guess-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0;border-top:1px dashed var(--line);flex-wrap:wrap;}
+.guess-row:first-of-type{border-top:none;}
+.guess-row .prompt{flex:1;min-width:220px;font-size:.95rem;}
+select, textarea{
+  font-family:'IBM Plex Sans',sans-serif;font-size:.9rem;padding:9px 10px;border-radius:6px;
+  border:1.5px solid var(--line);background:var(--paper);color:var(--ink);
+}
+textarea{width:100%;min-height:80px;resize:vertical;}
+/* results box */
+.result-box{
+  background:var(--accent-soft);border:1.5px dashed var(--accent-dark);border-radius:8px;
+  padding:16px 18px;margin-top:16px;font-family:'IBM Plex Mono',monospace;font-size:.85rem;
+  white-space:pre-wrap;display:none;
+}
+.result-box.show{display:block;}
+/* roster strip */
+.roster{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;}
+.roster span{
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;border:1px solid var(--line);
+  border-radius:20px;padding:5px 12px;background:var(--paper-raised);color:var(--ink-soft);
+}
+/* form cta */
+.formcta{
+  background:var(--ink);color:var(--paper);border-radius:12px;padding:34px 30px;text-align:center;
+  margin-top:8px;
+}
+.formcta h2{font-family:'Oswald',sans-serif;color:#fff;margin-top:0;font-size:1.5rem;}
+.formcta p{color:#cfc9ba;max-width:480px;margin:0 auto 20px;}
+.formcta .btn{background:var(--accent);color:#fff;}
+.formcta .btn:hover{background:var(--accent-soft);color:var(--ink);}
+footer{padding:34px 0 10px;text-align:center;}
+footer .eyebrow{display:block;margin-bottom:8px;}
+footer a{font-family:'IBM Plex Mono',monospace;font-size:.78rem;}
+.spectrum{height:6px;border-radius:3px;background:linear-gradient(90deg,#B23A2E,#B8862B,#3E6E52,#33587F);margin:18px 0 0;}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;scroll-behavior:auto!important;}}
+@media (max-width:600px){.stamp{width:92px;height:92px;font-size:.55rem;float:none;margin:0 0 18px;}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-name">Operations Field Manual · Behavioral Styles</span>
+      <span class="brand-progress">Week 5 of 6</span>
+    </div>
+    <nav class="tabs">
+      <a class="tab" href="week1.html">W1 &middot; Foundations</a>
+      <a class="tab" href="week2.html">W2 &middot; The</a>
+      <a class="tab" href="week3.html">W3 &middot; The</a>
+      <a class="tab" href="week4.html">W4 &middot; The</a>
+      <a class="tab active" href="week5.html">W5 &middot; Observe</a>
+      <a class="tab" href="week6.html">W6 &middot; Master</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="hero">
+    <div class="stamp">FILE 05<br>OBSERVE</div>
+    <div class="eyebrow">Field File No. 05</div>
+    <div class="chapters">CHAPTERS 18&ndash;21</div>
+    <h1>Body Language, Perception &amp; Stress</h1>
+    <p class="thesis">Nobody is one color under pressure. This week we look at how stress bends each style's body language and how our own lens distorts what we think we're seeing in someone else.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><span class="tag">Briefing</span><h2>What this week is about</h2></div>
+    <div class="card">
+<p>Every style changes under pressure &mdash; and it usually shows in the body before it shows in words. This week's chapters connect the four styles to stress behavior and nonverbal cues: what it looks like when Red gets more forceful, Yellow gets more scattered, Green goes quiet, or Blue gets more rigid.</p>
+<p>The second half is about perception &mdash; how we all judge other people's behavior through the lens of our own style, and how much of what we call "reading someone" is really just projecting.</p>
+</div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><span class="tag">Interactive</span><h2>This week's exercises (10 min)</h2></div>
+    <script>
+function renderScale(elId, statements, name){
+  const el = document.getElementById(elId);
+  el.innerHTML = statements.map((s,i)=>{
+    const opts = [1,2,3,4,5].map(v=>
+      `<input type="radio" id="${name}-${i}-${v}" name="${name}-${i}" value="${v}">`+
+      `<label for="${name}-${i}-${v}">${v}</label>`).join('');
+    return `<div class="scale-row"><div class="stmt">${s}</div><div class="scale">${opts}</div></div>`;
+  }).join('');
+}
+function scoreScale(name, count){
+  let total = 0, answered = 0;
+  for(let i=0;i<count;i++){
+    const sel = document.querySelector(`input[name="${name}-${i}"]:checked`);
+    if(sel){ total += parseInt(sel.value); answered++; }
+  }
+  return {total, answered};
+}
+function bandLabel(pct){
+  if(pct < 34) return "Low";
+  if(pct < 67) return "Moderate";
+  return "High";
+}
+function saveProfileScore(colorKey, pct){
+  try{
+    const raw = localStorage.getItem('ofm-profile');
+    const data = raw ? JSON.parse(raw) : {};
+    data[colorKey] = pct;
+    localStorage.setItem('ofm-profile', JSON.stringify(data));
+  }catch(e){}
+}
+function buildGuess(elId, prompts, teamNames, name){
+  const el = document.getElementById(elId);
+  el.innerHTML = prompts.map((p,i)=>{
+    const opts = teamNames.map(n=>`<option value="${n}">${n}</option>`).join('');
+    return `<div class="guess-row"><div class="prompt">${i+1}. ${p}</div><select id="${name}-${i}"><option value="">Pick a name&hellip;</option>${opts}</select></div>`;
+  }).join('');
+}
+function checkScenario(cardId, qi, picked, correct, expl){
+  const el = document.getElementById(cardId + "-fb-" + qi);
+  if(picked === correct){ el.innerHTML = "<b>That tracks.</b> " + expl; }
+  else { el.innerHTML = "Not quite the classic tell — " + expl; }
+}
+function revealGuess(prompts, name, resultId){
+  const lines = prompts.map((p,i)=>{
+    const sel = document.getElementById(`${name}-${i}`);
+    const v = (sel && sel.value) || '—';
+    return (i+1) + ". " + v;
+  });
+  const box = document.getElementById(resultId);
+  box.textContent = "MY GUESSES\n" + lines.join("\n") + "\n\nRead these out loud at your next huddle — no wrong answers, just first impressions.";
+  box.classList.add('show');
+}
+</script>
+    <div class="card">
+<h3>Read the room</h3>
+<p class="hint">Match the stress behavior to the style that's most likely producing it.</p>
+<div class="scale-row"><div class="stmt"><b>1.</b> Under sudden pressure, a Red-style teammate's body language is most likely to:</div><button class="btn secondary" style="display:block;width:100%;text-align:left;margin:6px 0;font-size:.82rem;text-transform:none;letter-spacing:0;" onclick="checkScenario('w5a',0,0,0,w5a_EXPL[0])">Get louder, faster, more clipped</button><button class="btn secondary" style="display:block;width:100%;text-align:left;margin:6px 0;font-size:.82rem;text-transform:none;letter-spacing:0;" onclick="checkScenario('w5a',0,1,0,w5a_EXPL[0])">Go quiet and avoid eye contact</button><button class="btn secondary" style="display:block;width:100%;text-align:left;margin:6px 0;font-size:.82rem;text-transform:none;letter-spacing:0;" onclick="checkScenario('w5a',0,2,0,w5a_EXPL[0])">Start over-explaining every detail</button><button class="btn secondary" style="display:block;width:100%;text-align:left;margin:6px 0;font-size:.82rem;text-transform:none;letter-spacing:0;" onclick="checkScenario('w5a',0,3,0,w5a_EXPL[0])">Crack jokes to cut the tension</button><div class="gauge-label" id="w5a-fb-0"></div></div><div class="scale-row"><div class="stmt"><b>2.</b> A Green-style teammate who's actually upset about a decision is more likely to:</div><button class="btn secondary" style="display:block;width:100%;text-align:left;margin:6px 0;font-size:.82rem;text-transform:none;letter-spacing:0;" onclick="checkScenario('w5a',1,0,1,w5a_EXPL[1])">Say so directly in the meeting</button><button class="btn secondary" style="display:block;width:100%;text-align:left;margin:6px 0;font-size:.82rem;text-transform:none;letter-spacing:0;" onclick="checkScenario('w5a',1,1,1,w5a_EXPL[1])">Go quiet, agree on the surface, and disengage quietly afterward</button><button class="btn secondary" style="display:block;width:100%;text-align:left;margin:6px 0;font-size:.82rem;text-transform:none;letter-spacing:0;" onclick="checkScenario('w5a',1,2,1,w5a_EXPL[1])">Send a strongly worded email</button><button class="btn secondary" style="display:block;width:100%;text-align:left;margin:6px 0;font-size:.82rem;text-transform:none;letter-spacing:0;" onclick="checkScenario('w5a',1,3,1,w5a_EXPL[1])">Escalate it to a manager immediately</button><div class="gauge-label" id="w5a-fb-1"></div></div><div class="scale-row"><div class="stmt"><b>3.</b> A Blue-style teammate who feels rushed into a decision is most likely to:</div><button class="btn secondary" style="display:block;width:100%;text-align:left;margin:6px 0;font-size:.82rem;text-transform:none;letter-spacing:0;" onclick="checkScenario('w5a',2,0,1,w5a_EXPL[2])">Speed up to match everyone else</button><button class="btn secondary" style="display:block;width:100%;text-align:left;margin:6px 0;font-size:.82rem;text-transform:none;letter-spacing:0;" onclick="checkScenario('w5a',2,1,1,w5a_EXPL[2])">Ask more clarifying questions and slow the process down</button><button class="btn secondary" style="display:block;width:100%;text-align:left;margin:6px 0;font-size:.82rem;text-transform:none;letter-spacing:0;" onclick="checkScenario('w5a',2,2,1,w5a_EXPL[2])">Go along with it to avoid friction</button><button class="btn secondary" style="display:block;width:100%;text-align:left;margin:6px 0;font-size:.82rem;text-transform:none;letter-spacing:0;" onclick="checkScenario('w5a',2,3,1,w5a_EXPL[2])">Change the subject</button><div class="gauge-label" id="w5a-fb-2"></div></div>
+<script>
+var w5a_EXPL = ["Stress usually turns up the volume on whatever's already there for Red &mdash; more force, less patience.","Green often withholds the objection in the room and shows it through quiet disengagement instead.","Feeling rushed usually makes Blue dig in on precision, not let go of it."];
+</script>
+</div><div class="card">
+<h3>Perception check</h3>
+<p class="hint">A private reflection &mdash; nothing here is saved or shared. Use it to prep a thought for this week's form.</p>
+<div class="scale-row"><div class="stmt">Think of the last time you misread someone's reaction at work. Looking back, what were you actually seeing &mdash; and what story did you add on top of it?</div><textarea id="w5b-0" placeholder="Jot a few words&hellip; (stays on this device, nothing is sent)"></textarea></div><div class="scale-row"><div class="stmt">Which style's stress behavior is easiest for you to misread as something personal (anger, disinterest, disrespect) when it probably isn't?</div><textarea id="w5b-1" placeholder="Jot a few words&hellip; (stays on this device, nothing is sent)"></textarea></div>
+</div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><span class="tag">Roster</span><h2>Who's in the room</h2></div>
+    <p class="hint">This week's read applies to everyone at the table — use it as a mirror, not a label.</p>
+    <div class="roster">
+      <span>Dr. Galanis</span><span>Michael</span><span>Casey</span><span>Alex</span><span>Derek</span><span>Clint</span><span>Jake</span>
+    </div>
+  </section>
+
+  <section class="section" style="border-bottom:none;">
+    <div class="formcta">
+      <h2>Submit your Field Report</h2>
+      <p>Answer this week's short form so we can compare notes together before next week's chapters.</p>
+      <a class="btn" href="https://forms.office.com/r/REPLACE-WITH-WEEK5-LINK" target="_blank" rel="noopener">Open Week 5 Form →</a>
+    </div>
+  </section>
+
+  <footer>
+    <span class="eyebrow">Next up</span>
+    <a href="week6.html">Week 6: Feedback, Group Dynamics &amp; Workplace Application →</a>
+  </footer>
+</div>
+</body>
+</html>
